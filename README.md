@@ -184,6 +184,42 @@ pingable 和 statistics 数据太多且更新较快，不建议全量导出。
 
 ![系统成本](images/cost.png)
 
+## 智能体设置
+
+本系统已支持各种智能体调用。
+
+### MCP 配置
+
+通过部署 AgentCore Gateway，可以实现系统的mcp访问对接，详细方法参考 lambda2mcp 项目进行 [一键部署](https://github.com/tansoft/aws-useful-code/tree/main/serverless/mcp-sample#%E9%85%8D%E7%BD%AE-cloudperf-mcp-%E6%9F%A5%E8%AF%A2%E5%B7%A5%E5%85%B7)
+
+![MCP调用效果](images/mcp.png)
+
+### Skills 配置
+
+可以通过配置Skills，实现本地直接调用CloudPerf API实现查询，也可以结合使用 fping 进行实时质量检查。
+
+* Skills 安装
+
+```bash
+mkdir ~/.kiro/skills/cloudperf
+wget https://github.com/tansoft/cloudperf/raw/refs/heads/main/docs/skills/SKILL.md -O ~/.kiro/skills/cloudperf/SKILL.md
+wget https://github.com/tansoft/cloudperf/raw/refs/heads/main/docs/skills/cloudperf_api.py -O ~/.kiro/skills/cloudperf/cloudperf_api.py
+mkdir ~/.cloudperf
+```
+
+* 根据您的CloudPerf信息进行配置 ~/.cloudperf/config.json
+
+```json
+{
+  "api_base": "http://cloudp-cloud-xxxx.us-east-1.elb.amazonaws.com/",
+  "username": "readonly",
+  "password": "xxxxx"
+}
+```
+
+* 或使用环境变量 `CLOUDPERF_API_BASE` `CLOUDPERF_USERNAME` `CLOUDPERF_PASSWORD` 进行配置
+* 如果您有长效的cptoken，也可以配置到 ~/.cloudperf/.token 文件中使用。
+
 ## 附录
 
 ### 高级设置
