@@ -201,9 +201,14 @@ pingable 和 statistics 数据太多且更新较快，不建议全量导出。
 * Skills 安装
 
 ```bash
-mkdir ~/.kiro/skills/cloudperf
-wget https://github.com/tansoft/cloudperf/raw/refs/heads/main/docs/skills/SKILL.md -O ~/.kiro/skills/cloudperf/SKILL.md
-wget https://github.com/tansoft/cloudperf/raw/refs/heads/main/docs/skills/cloudperf_api.py -O ~/.kiro/skills/cloudperf/cloudperf_api.py
+# Option 1: kiro path
+TARGET_PATH=~/.kiro/skills
+# Option 2: claude code path
+TARGET_PATH=~/.claude/skills
+
+mkdir ${TARGET_PATH}/cloudperf
+wget https://github.com/tansoft/cloudperf/raw/refs/heads/main/docs/skills/SKILL.md -O ${TARGET_PATH}/cloudperf/SKILL.md
+wget https://github.com/tansoft/cloudperf/raw/refs/heads/main/docs/skills/cloudperf_api.py -O ${TARGET_PATH}/cloudperf/cloudperf_api.py
 mkdir ~/.cloudperf
 ```
 
@@ -219,6 +224,18 @@ mkdir ~/.cloudperf
 
 * 或使用环境变量 `CLOUDPERF_API_BASE` `CLOUDPERF_USERNAME` `CLOUDPERF_PASSWORD` 进行配置
 * 如果您有长效的cptoken，也可以配置到 ~/.cloudperf/.token 文件中使用。
+
+### 查询举例
+
+注意：实时查询功能需要依赖本机安装fping工具。
+
+```bash
+查询18.235.213.1信息
+查询Amazon ASN信息
+查询aws亚洲区域服务越南的效果
+新加坡区域服务东南亚各个国家的情况
+实时查询越南网络质量
+```
 
 ## 附录
 

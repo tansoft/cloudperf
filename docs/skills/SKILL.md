@@ -74,6 +74,15 @@ python ~/.kiro/skills/cloudperf/cloudperf_api.py <function_name> [param1=value1 
    ```bash
    python ~/.kiro/skills/cloudperf/cloudperf_api.py rawdata src=1213020226,1643985005 dist=3456789012
    ```
+7. **find_asninfo** - 通过关键字查询相关ASN信息
+   ```bash
+   python ~/.kiro/skills/cloudperf/cloudperf_api.py asninfo filter=Amazon
+   ```
+
+8. **find_ipinfo** - 查询指定ip的信息
+   ```bash
+   python ~/.kiro/skills/cloudperf/cloudperf_api.py ipinfo ip=100.2.3.4
+   ```
 
 ## Workflow
 
